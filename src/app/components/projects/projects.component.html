@@ -1,0 +1,45 @@
+<section id="projects" class="py-12 px-6 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+  <h2 class="text-3xl font-bold text-center mb-8">My Projects</h2>
+
+  <!-- Filter Buttons -->
+  <div class="flex justify-center gap-4 mb-10">
+    <button
+      *ngFor="let tech of techs"
+      (click)="setFilter(tech)"
+      [ngClass]="{
+        'bg-blue-600 text-white': filter === tech,
+        'bg-gray-200 text-gray-700': filter !== tech
+      }"
+      class="px-4 py-2 rounded-lg transition">
+      {{ tech }}
+    </button>
+  </div>
+
+  <!-- Projects Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div
+      *ngFor="let project of filteredProjects"
+      class="bg-white shadow-lg rounded-2xl overflow-hidden hover:scale-105 transition">
+
+      <img [src]="project.image" [alt]="project.title" class="w-full h-48 object-cover" />
+
+      <div class="p-5">
+        <h3 class="text-xl font-semibold mb-2 dark:text-black">{{ project.title }}</h3>
+        <p class="text-gray-600 mb-3">{{ project.description }}</p>
+
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span
+            *ngFor="let tech of project.technologies"
+            class="bg-gray-200 text-sm px-2 py-1 rounded-lg dark:text-black">
+            {{ tech }}
+          </span>
+        </div>
+
+        <a [href]="project.link" target="_blank" class="text-blue-600 hover:underline font-medium">
+          View Project →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

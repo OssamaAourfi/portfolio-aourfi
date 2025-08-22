@@ -1,0 +1,16 @@
+
+@keyframes fill {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: var(--progress);
+  }
+}
+
+.animate-fill {
+  animation: fill 2s ease forwards;
+}
+
+
