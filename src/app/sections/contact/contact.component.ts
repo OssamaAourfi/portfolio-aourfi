@@ -14,10 +14,10 @@ export class ContactComponent {
 
     emailjs
       .sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        'service_7n2lh7i',
+        'template_qdr04ni',
         event.target,
-        'YOUR_PUBLIC_KEY'
+        'Uxha_VMMzix2mPHT-'
       )
       .then(
         (result: any) => {
